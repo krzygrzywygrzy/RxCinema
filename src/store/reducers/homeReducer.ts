@@ -5,6 +5,7 @@ import HomeAction from "../actions/homeActions";
 export interface HomeState {
   loading: boolean;
   data?: any;
+  error?: Error;
 }
 
 const homeReducer: Reducer<HomeState> = (
@@ -16,11 +17,10 @@ const homeReducer: Reducer<HomeState> = (
       return { loading: true, data: state.data };
     }
     case HomeActionType.FETCHED: {
-      console.log("eee");
       return { loading: false, data: action.payload };
     }
     case HomeActionType.ERROR: {
-      return { loading: false, data: action.payload };
+      return { loading: false, error: new Error(action.payload) };
     }
     default:
       return state;

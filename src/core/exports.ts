@@ -1,1 +1,1 @@
-export const __API_LINK__ = "https://api.themoviedb.org";
+export const __API_LINK__ = "https://api.themoviedb.org/3";

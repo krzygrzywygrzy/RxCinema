@@ -17,7 +17,16 @@ const Home: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (homeState.loading) return <div>Loading...</div>;
+  /**
+   * Layout
+   */
+  if (homeState.loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (homeState.error) {
+    return <div>Error: {homeState.error.message}</div>;
+  }
 
   return (
     <div>
@@ -26,6 +35,9 @@ const Home: React.FC = () => {
       <main>{JSON.stringify(homeState)}</main>
     </div>
   );
+  /**
+   * Layout
+   */
 };
 
 export default Home;

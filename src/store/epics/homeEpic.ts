@@ -12,13 +12,13 @@ export function homeFetchEpic(action$: Observable<HomeAction>) {
     ofType(HomeActionType.FETCH),
     mergeMap((_action) =>
       ajax
-        .getJSON(`${__API_LINK__}/movie/popular?api_key=${process.env.REACT_APP_FILM_API_KEY}`)
+        .getJSON(`${__API_LINK__}/movie/popular/?api_key=${process.env.REACT_APP_FILM_API_KEY}`)
         .pipe(
           map((response) => fetched(response)),
           catchError((err) =>
             of({
               type: HomeActionType.ERROR,
-              payload: err,
+              payload: err.message,
             })
           )
         )
