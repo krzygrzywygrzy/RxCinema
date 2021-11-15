@@ -6,7 +6,7 @@ interface FilmPosterProps {
 }
 
 const FilmPoster: React.FC<FilmPosterProps> = ({ film }) => {
-  return <div>{film.original_title}</div>;
+  return <div className="text-red-600">{film.title}</div>;
 };
 
 export default FilmPoster;
