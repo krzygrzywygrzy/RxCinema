@@ -1,8 +1,7 @@
-import { Epic, ofType } from "redux-observable";
+import {  ofType } from "redux-observable";
 import { map, mergeMap, Observable } from "rxjs";
 import { AppActionType } from "../action-types";
 import { AppAction } from "../actions/appActions";
-import { RootState } from "../reducers";
 import { ajax } from "rxjs/ajax";
 
 const fetchFullFilled = (payload: any) => ({ type: AppActionType.FULFILLED, payload });

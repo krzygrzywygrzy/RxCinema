@@ -7,7 +7,9 @@ import { createEpicMiddleware } from "redux-observable";
 import reducers, { RootState } from "./store/reducers";
 import { Provider } from "react-redux";
 import epics from "./store/epics";
-import App from "./pages/App";
+import { Route } from "wouter";
+import Home from "./pages/Home";
+import { Navigation } from "./core/navigation";
 
 declare global {
   interface Window {
@@ -32,7 +34,9 @@ epicMiddleware.run(epics as any);
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App/>
+      <Route path={Navigation.HOME}>
+        <Home />
+      </Route>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

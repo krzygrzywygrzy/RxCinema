@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
-import appReducer, { AppState } from "./appReducer";
+import homeReducer, { HomeState } from "./homeReducer";
 
 export type RootState = {
-  appState: AppState;
+  homeState: HomeState;
 };
 
-const reducers = combineReducers({ appState: appReducer });
+const reducers = combineReducers<RootState>({ homeState: homeReducer });
 
 export default reducers;

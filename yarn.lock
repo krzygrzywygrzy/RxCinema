@@ -6881,11 +6881,6 @@ klona@^2.0.4:
   resolved "https://registry.yarnpkg.com/klona/-/klona-2.0.4.tgz#7bb1e3affb0cb8624547ef7e8f6708ea2e39dfc0"
   integrity sha512-ZRbnvdg/NxqzC7L9Uyqzf4psi1OM4Cuc+sJAkQPjO6XkQIJTNbfK2Rsmbw8fx1p2mkZdp2FZYo2+LwXYY/uwIA==
 
-ky@^0.28.7:
-  version "0.28.7"
-  resolved "https://registry.yarnpkg.com/ky/-/ky-0.28.7.tgz#10c42be863fb96c1846d6e71e229263ffb72eb15"
-  integrity sha512-a23i6qSr/ep15vdtw/zyEQIDLoUaKDg9Jf04CYl/0ns/wXNYna26zJpI+MeIFaPeDvkrjLPrKtKOiiI3IE53RQ==
-
 language-subtag-registry@~0.3.2:
   version "0.3.21"
   resolved "https://registry.yarnpkg.com/language-subtag-registry/-/language-subtag-registry-0.3.21.tgz#04ac218bea46f04cb039084602c6da9e788dd45a"
@@ -11447,6 +11442,11 @@ worker-rpc@^0.1.0:
   integrity sha512-P1WjMrUB3qgJNI9jfmpZ/htmBEjFh//6l/5y8SD9hg1Ef5zTTVVoRjTrTEzPrNBQvmhMxkoTsjOXN10GWU7aCg==
   dependencies:
     microevent.ts "~0.1.1"
+
+wouter@^2.8.0-alpha.2:
+  version "2.8.0-alpha.2"
+  resolved "https://registry.yarnpkg.com/wouter/-/wouter-2.8.0-alpha.2.tgz#d57dfbd23b964b8bd848f2ed3eb2b38cf3c00e00"
+  integrity sha512-aPsL5m5rW9RiceClOmGj6t5gn9Ut2TJVr98UDi1u9MIRNYiYVflg6vFIjdDYJ4IAyH0JdnkSgGwfo0LQS3k2zg==
 
 wrap-ansi@^5.1.0:
   version "5.1.0"
