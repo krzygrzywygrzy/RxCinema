@@ -1,10 +1,16 @@
 import { Reducer } from "redux";
+import Film from "../../models/Film";
 import { HomeActionType } from "../action-types";
 import HomeAction from "../actions/homeActions";
 
 export interface HomeState {
   loading: boolean;
-  data?: any;
+  data?: {
+    page: number;
+    results: Film[];
+    total_results: number;
+    total_pages: number;
+  };
   error?: Error;
 }
 

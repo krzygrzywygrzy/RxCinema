@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { HomeState } from "../store/reducers/homeReducer";
 import { RootState } from "../store/reducers";
 import { HomeActionType } from "../store/action-types";
+import FilmPoster from "../components/Posters/FilmPoster";
 
 const Home: React.FC = () => {
   const homeState: HomeState = useSelector((state: RootState) => state.homeState);
@@ -32,7 +33,16 @@ const Home: React.FC = () => {
     <div>
       <header>Your catalog of films!</header>
 
-      <main>{JSON.stringify(homeState)}</main>
+      <main>
+        <section>
+          <div>Popular</div>
+          <div>
+            {homeState.data?.results.map((film) => {
+              return <FilmPoster key={film.id} film={film} />;
+            })}
+          </div>
+        </section>
+      </main>
     </div>
   );
   /**
