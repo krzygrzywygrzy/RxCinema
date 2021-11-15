@@ -10,6 +10,7 @@ import epics from "./store/epics";
 import { Route } from "wouter";
 import Home from "./pages/Home";
 import { Navigation } from "./core/navigation";
+import Navbar from "./components/navbar/Navbar";
 
 declare global {
   interface Window {
@@ -34,6 +35,7 @@ epicMiddleware.run(epics as any);
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+      <Navbar />
       <Route path={Navigation.HOME}>
         <Home />
       </Route>
