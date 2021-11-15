@@ -1,14 +1,41 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import { createStore, applyMiddleware, compose } from "redux";
+import { createEpicMiddleware } from "redux-observable";
+import reducers, { RootState } from "./store/reducers";
+import { Provider } from "react-redux";
+import epics from "./store/epics";
+import App from "./pages/App";
+
+declare global {
+  interface Window {
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: Function;
+  }
+}
+
+const composeEnhancers = (window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
+
+const epicMiddleware = createEpicMiddleware<any, any, RootState>();
+
+const configureStore = () => {
+  const middleware = [epicMiddleware];
+  const enhanders = composeEnhancers(applyMiddleware(...middleware));
+  return createStore(reducers, enhanders);
+};
+
+const store = configureStore();
+
+epicMiddleware.run(epics as any);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App/>
+    </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
