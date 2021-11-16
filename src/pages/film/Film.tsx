@@ -3,6 +3,7 @@ import { __IMAGE_LINK__ } from "../../core/exports";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../store/reducers";
 import { FilmActionType } from "../../store/action-types";
+import PersonPoster from "../../components/Posters/PersonPoster";
 
 interface FilmProps {
   id: number;
@@ -28,8 +29,8 @@ const Film: React.FC<FilmProps> = ({ id }) => {
   }
 
   return film.data ? (
-    <div className="site-container my-8">
-      <main className="grid grid-cols-4">
+    <div className=" my-8">
+      <main className="grid grid-cols-4 border-b pb-4 mb-4 site-container">
         <div>
           <img
             alt={film.data?.details.title}
@@ -55,11 +56,24 @@ const Film: React.FC<FilmProps> = ({ id }) => {
                 <q>{film.data?.details.tagline}</q>
               </div>
             )}
-            <div className="mt-2 border-b pb-4">{film.data?.details.overview}</div>
+            <div className="mt-2  pb-4">{film.data?.details.overview}</div>
           </section>
         </div>
       </main>
-      <div>{JSON.stringify(film.data.credits)}</div>
+      <section className="ml-32">
+        <section>
+          <div className="text-4xl mb-4">Cast</div>
+          <div className="flex item-roll">
+            {film.data.credits.cast.map((cast) => {
+              return (
+                <div key={cast.id} className="mr-4">
+                  <PersonPoster person={cast} />
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      </section>
     </div>
   ) : (
     <div></div>

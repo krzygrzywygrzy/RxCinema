@@ -39,7 +39,7 @@ const Home: React.FC = () => {
       <main>
         <section className="home-section">
           <div className="home-section-title">Popular films</div>
-          <div className="home-film-roll">
+          <div className="item-roll">
             {homeState.data?.results.map((film) => {
               return (
                 <div key={film.id} className="mr-4">

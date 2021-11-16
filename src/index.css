@@ -41,6 +41,6 @@ code {
   @apply text-3xl mb-8 font-medium;
 }
 
-.home-film-roll {
+.item-roll {
   @apply flex overflow-scroll w-full hide-scrollbar;
 }
