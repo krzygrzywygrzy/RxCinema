@@ -1,4 +1,5 @@
 import React from "react";
+import { __IMAGE_LINK__ } from "../../core/exports";
 import Film from "../../models/Film";
 
 interface FilmPosterProps {
@@ -6,7 +7,17 @@ interface FilmPosterProps {
 }
 
 const FilmPoster: React.FC<FilmPosterProps> = ({ film }) => {
-  return <div className="text-red-600">{film.title}</div>;
+  return (
+    <div className="cursor-pointer">
+      <div className="w-72">
+        <img src={__IMAGE_LINK__ + film.poster_path} alt={film.title} className="rounded-xl" />
+      </div>
+      <div className="mt-2 flex items-center justify-between">
+        <div className="font-medium overflow-ellipsis">{film.title}</div>
+        <div className="text-xl">{film.vote_average}</div>
+      </div>
+    </div>
+  );
 };
 
 export default FilmPoster;

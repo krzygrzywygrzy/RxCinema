@@ -8,9 +8,9 @@ import reducers, { RootState } from "./store/reducers";
 import { Provider } from "react-redux";
 import epics from "./store/epics";
 import { Route } from "wouter";
-import Home from "./pages/Home";
 import { Navigation } from "./core/navigation";
 import Navbar from "./components/navbar/Navbar";
+import Home from "./pages/home/Home";
 
 declare global {
   interface Window {
