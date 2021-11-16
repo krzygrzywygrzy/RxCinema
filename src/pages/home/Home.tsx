@@ -32,7 +32,7 @@ const Home: React.FC = () => {
   return (
     <div className="relative">
       <header className="my-16 site-container text-6xl">
-        <p>Your reactice catalog of films...</p>
+        <p>Your reactive catalog of films...</p>
         <p>and TV shows!</p>
       </header>
 

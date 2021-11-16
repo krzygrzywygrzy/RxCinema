@@ -19,20 +19,30 @@ const Film: React.FC<FilmProps> = ({ id }) => {
 
   return (
     <div className="site-container my-8">
-      <main className="flex ">
+      <main className="grid grid-cols-4">
         <div>
           <img alt={data.title} src={__IMAGE_LINK__ + data.poster_path} className="rounded-xl" />
         </div>
-        <div className="ml-4">
-          <div>
-            <span className="text-5xl">{data.title}</span>
-            <span className="ml-2 text-3xl text-gray-500">
-              {new Date(data.release_date).getFullYear()}
-            </span>
-          </div>
-          <div className="mt-4 text-3xl">
-            Average Score: <span className="text-4xl">{data.vote_average}</span>
-          </div>
+        <div className="ml-4 col-span-2">
+          <section>
+            <div>
+              <span className="text-5xl">{data.title}</span>
+              <span className="ml-2 text-3xl text-gray-500">
+                {new Date(data.release_date).getFullYear()}
+              </span>
+            </div>
+
+            <div className="mt-4 text-3xl">
+              Average Score: <span className="text-4xl">{data.vote_average}</span>
+              <span className="ml-2 text-base">by {data.vote_count} reviewers</span>
+            </div>
+            {data.tagline && (
+              <div className="text-xl mt-4">
+                <q>{data.tagline}</q>
+              </div>
+            )}
+            <div className="mt-2 border-b pb-4">{data.overview}</div>
+          </section>
         </div>
       </main>
     </div>

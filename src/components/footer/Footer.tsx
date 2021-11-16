@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
           RxCinema<span className="text-base ml-8">powered by</span>
         </div>
         <div className="ml-2">
-          <a href="https://www.themoviedb.org/" target={"_blank"}>
+          <a href="https://www.themoviedb.org/" rel="noreferrer" target={"_blank"}>
             <img src={tmdb} width="100px" alt="The Movie Database" />
           </a>
         </div>
