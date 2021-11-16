@@ -1,4 +1,6 @@
 import { Reducer } from "redux";
+import Cast from "../../models/Cast";
+import Crew from "../../models/Crew";
 import { FilmDetails } from "../../models/Film";
 import { FilmActionType } from "../action-types";
 import CurrentFilmAction from "../actions/currentFilmActions";
@@ -7,7 +9,12 @@ export interface CurrentFilmState {
   loading: boolean;
   error?: Error;
   data?: {
-    details: FilmDetails
+    details: FilmDetails,
+    credits: {
+      id: number;
+      cast: Cast[],
+      crew: Crew[],
+    }
   }
 }
 

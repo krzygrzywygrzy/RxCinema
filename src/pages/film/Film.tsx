@@ -59,6 +59,7 @@ const Film: React.FC<FilmProps> = ({ id }) => {
           </section>
         </div>
       </main>
+      <div>{JSON.stringify(film.data.credits)}</div>
     </div>
   ) : (
     <div></div>

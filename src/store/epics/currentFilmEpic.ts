@@ -7,7 +7,11 @@ import CurrentFilmAction from "../actions/currentFilmActions";
 
 
 const details = (payload: number) =>
-    ajax.getJSON(`${__API_LINK__}/movie/${payload}?api_key=${__API_KEY__}`);
+    ajax.getJSON(`${__API_LINK__}/movie/${payload}?${__API_KEY__}`);
+
+const credits = (payload: number) =>
+    ajax.getJSON(`${__API_LINK__}/movie/${payload}/credits?${__API_KEY__}`);
+
 
 const fetched = (payload: any) => ({ type: FilmActionType.FETCHED, payload })
 
@@ -17,6 +21,7 @@ export function currentFilmEpic(action$: Observable<CurrentFilmAction>) {
         mergeMap((action) =>
             forkJoin({
                 details: details(action.payload),
+                credits: credits(action.payload),
                 //get cast
             }).pipe(
                 map((response) => fetched(response)),
