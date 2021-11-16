@@ -37,9 +37,9 @@ const Home: React.FC = () => {
       </header>
 
       <main>
-        <section className="my-8 ml-32">
-          <div className="text-3xl mb-8 font-medium">Popular films</div>
-          <div className="flex overflow-scroll w-full hide-scrollbar">
+        <section className="home-section">
+          <div className="home-section-title">Popular films</div>
+          <div className="home-film-roll">
             {homeState.data?.results.map((film) => {
               return (
                 <div key={film.id} className="mr-4">
@@ -48,6 +48,9 @@ const Home: React.FC = () => {
               );
             })}
           </div>
+        </section>
+        <section className="home-section">
+          <div className="home-section-title">Popular TV shows</div>
         </section>
       </main>
     </div>
