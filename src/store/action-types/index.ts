@@ -1,12 +1,12 @@
 export enum HomeActionType {
-  FETCH = "fetch",
-  FETCHED = "fetched",
-  ERROR = "error",
+  FETCH = "home_fetch",
+  FETCHED = "home_fetched",
+  ERROR = "home_error",
 }
 
 export enum FilmActionType {
-  FETCH = "fetch",
-  FETCHED = "fetched",
-  ERROR = "error",
+  FETCH = "current_film_fetch",
+  FETCHED = "current_film_fetched",
+  ERROR = "current_film_error",
 }
 

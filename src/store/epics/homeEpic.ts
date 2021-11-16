@@ -1,5 +1,5 @@
 import { ajax } from "rxjs/ajax";
-import { combineEpics, ofType } from "redux-observable";
+import { ofType } from "redux-observable";
 import { HomeActionType } from "../action-types";
 import { mergeMap, Observable, map, catchError, of } from "rxjs";
 import HomeAction from "../actions/homeActions";

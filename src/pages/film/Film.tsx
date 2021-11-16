@@ -1,51 +1,67 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { __IMAGE_LINK__ } from "../../core/exports";
-import useFetch from "../../core/hooks/useFetch";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../../store/reducers";
+import { FilmActionType } from "../../store/action-types";
 
 interface FilmProps {
   id: number;
 }
 
 const Film: React.FC<FilmProps> = ({ id }) => {
-  const { data, loading, error } = useFetch(`/movie/${id}`);
+  const film = useSelector((state: RootState) => state.currentFilmState);
+  const dispatch = useDispatch();
 
-  if (loading) {
+  const fetchData = () => dispatch({ type: FilmActionType.FETCH, payload: id });
+
+  useEffect(() => {
+    fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  if (film.error) {
+    return <div>Error: {film.error.message}</div>;
+  }
+
+  if (film.loading) {
     return <div>Loading...</div>;
   }
 
-  if (error || !data) {
-    return <div>Erorr... {error?.status_message}</div>;
-  }
-
-  return (
+  return film.data ? (
     <div className="site-container my-8">
       <main className="grid grid-cols-4">
         <div>
-          <img alt={data.title} src={__IMAGE_LINK__ + data.poster_path} className="rounded-xl" />
+          <img
+            alt={film.data?.details.title}
+            src={__IMAGE_LINK__ + film.data?.details.poster_path}
+            className="rounded-xl"
+          />
         </div>
         <div className="ml-4 col-span-2">
           <section>
             <div>
-              <span className="text-5xl">{data.title}</span>
+              <span className="text-5xl">{film.data?.details.title}</span>
               <span className="ml-2 text-3xl text-gray-500">
-                {new Date(data.release_date).getFullYear()}
+                {/* {new Date(film.data?.details.release_date).getFullYear()} */}
               </span>
             </div>
 
             <div className="mt-4 text-3xl">
-              Average Score: <span className="text-4xl">{data.vote_average}</span>
-              <span className="ml-2 text-base">by {data.vote_count} reviewers</span>
+              Average Score: <span className="text-4xl">{film.data?.details.vote_average}</span>
+              <span className="ml-2 text-base">by {film.data?.details.vote_count} reviewers</span>
             </div>
-            {data.tagline && (
+            {film.data?.details.tagline && (
               <div className="text-xl mt-4">
-                <q>{data.tagline}</q>
+                <q>{film.data?.details.tagline}</q>
               </div>
             )}
-            <div className="mt-2 border-b pb-4">{data.overview}</div>
+            <div className="mt-2 border-b pb-4">{film.data?.details.overview}</div>
           </section>
         </div>
       </main>
     </div>
+  ) : (
+    <div></div>
   );
 };
 

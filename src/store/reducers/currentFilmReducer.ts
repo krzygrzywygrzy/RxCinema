@@ -6,7 +6,9 @@ import CurrentFilmAction from "../actions/currentFilmActions";
 export interface CurrentFilmState {
   loading: boolean;
   error?: Error;
-  data?: FilmDetails
+  data?: {
+    details: FilmDetails
+  }
 }
 
 const currentFilmReducer: Reducer<CurrentFilmState, CurrentFilmAction> = (state: CurrentFilmState = { loading: false }, action: CurrentFilmAction) => {
