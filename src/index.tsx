@@ -11,6 +11,7 @@ import { Route } from "wouter";
 import { Navigation } from "./core/navigation";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/home/Home";
+import Film from "./pages/film/Film";
 
 declare global {
   interface Window {
@@ -39,6 +40,7 @@ ReactDOM.render(
       <Route path={Navigation.HOME}>
         <Home />
       </Route>
+      <Route path={Navigation.FILM + "/:id"}>{(params) => <Film id={parseInt(params.id)} />}</Route>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
