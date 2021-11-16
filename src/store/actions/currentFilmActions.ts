@@ -2,6 +2,7 @@ import { FilmActionType } from "../action-types/index";
 
 interface Fetch {
     type: FilmActionType.FETCH;
+    payload: number;
 }
 
 interface Fetched {
@@ -11,7 +12,7 @@ interface Fetched {
 
 interface Error {
     type: FilmActionType.ERROR;
-    payload: any;
+    payload: any
 }
 
 

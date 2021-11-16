@@ -6,13 +6,13 @@ import { createStore, applyMiddleware, compose } from "redux";
 import { createEpicMiddleware } from "redux-observable";
 import reducers, { RootState } from "./store/reducers";
 import { Provider } from "react-redux";
-import epics from "./store/epics";
 import { Route } from "wouter";
 import { Navigation } from "./core/navigation";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/home/Home";
 import Film from "./pages/film/Film";
 import Footer from "./components/footer/Footer";
+import { CURRENT_FILM_EPICS, HOME_EPICS } from "./store/epics";
 
 declare global {
   interface Window {
@@ -32,7 +32,8 @@ const configureStore = () => {
 
 const store = configureStore();
 
-epicMiddleware.run(epics as any);
+epicMiddleware.run(HOME_EPICS as any);
+epicMiddleware.run(CURRENT_FILM_EPICS as any);
 
 ReactDOM.render(
   <React.StrictMode>
