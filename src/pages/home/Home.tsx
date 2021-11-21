@@ -38,9 +38,9 @@ const Home: React.FC = () => {
 
       <main>
         <section className="home-section">
-          <div className="home-section-title">Popular films</div>
+          <div className="home-section-title">Trending</div>
           <div className="item-roll">
-            {homeState.data?.results.map((film) => {
+            {homeState.data?.trending.results.map((film) => {
               return (
                 <div key={film.id} className="mr-4">
                   <FilmPoster film={film} />
@@ -49,8 +49,17 @@ const Home: React.FC = () => {
             })}
           </div>
         </section>
-        <section className="home-section">
-          <div className="home-section-title">Popular TV shows</div>
+        <section className="site-container">
+          <div className="home-section-title">Popular films</div>
+          <div className="grid grid-cols-8">
+            {homeState.data?.popularFilms.results.map((film) => {
+              return (
+                <div key={film.id} className="mr-4">
+                  <FilmPoster film={film} grid={true} />
+                </div>
+              );
+            })}
+          </div>
         </section>
       </main>
     </div>

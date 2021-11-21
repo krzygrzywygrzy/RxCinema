@@ -12,7 +12,7 @@ const PersonPoster: React.FC<PersonPosterProps> = ({ person }) => {
       <div className="w-32">
         <img src={__IMAGE_LINK__ + person.profile_path} alt={person.name} className="rounded-xl" />
       </div>
-      <div className="flex items-center justify-between truncate">{person.name}</div>
+      <div className="flex items-center justify-between text-sm">{person.name}</div>
     </div>
   );
 };

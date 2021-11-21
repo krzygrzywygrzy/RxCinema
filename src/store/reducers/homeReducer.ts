@@ -1,15 +1,13 @@
 import { Reducer } from "redux";
-import Film from "../../models/Film";
+import FilmSet from "../../models/FilmSet";
 import { HomeActionType } from "../action-types";
 import HomeAction from "../actions/homeActions";
 
 export interface HomeState {
   loading: boolean;
   data?: {
-    page: number;
-    results: Film[];
-    total_results: number;
-    total_pages: number;
+    popularFilms: FilmSet,
+    trending: FilmSet,
   };
   error?: Error;
 }
@@ -23,6 +21,7 @@ const homeReducer: Reducer<HomeState> = (
       return { loading: true, data: state.data };
     }
     case HomeActionType.FETCHED: {
+      console.log(action.payload);
       return { loading: false, data: action.payload };
     }
     case HomeActionType.ERROR: {

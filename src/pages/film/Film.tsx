@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { ReactElement, useEffect } from "react";
 import { __IMAGE_LINK__ } from "../../core/exports";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../store/reducers";
@@ -43,14 +43,20 @@ const Film: React.FC<FilmProps> = ({ id }) => {
             <div>
               <span className="text-5xl">{film.data?.details.title}</span>
               <span className="ml-2 text-3xl text-gray-500">
-                {/* {new Date(film.data?.details.release_date).getFullYear()} */}
+                {new Date(film.data?.details.release_date).getFullYear()}
               </span>
+            </div>
+            <div>
+              {film.data.details.genres.map((el) => {
+                return <span key={el.id}>{el.name}, </span>;
+              })}
             </div>
 
             <div className="mt-4 text-3xl">
               Average Score: <span className="text-4xl">{film.data?.details.vote_average}</span>
               <span className="ml-2 text-base">by {film.data?.details.vote_count} reviewers</span>
             </div>
+            <span>{film.data.details.status}</span>
             {film.data?.details.tagline && (
               <div className="text-xl mt-4">
                 <q>{film.data?.details.tagline}</q>
