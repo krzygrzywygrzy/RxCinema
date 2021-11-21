@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect } from "react";
+import React, { useEffect } from "react";
 import { __IMAGE_LINK__ } from "../../core/exports";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../store/reducers";
@@ -21,11 +21,11 @@ const Film: React.FC<FilmProps> = ({ id }) => {
   }, []);
 
   if (film.error) {
-    return <div>Error: {film.error.message}</div>;
+    return <div className="site-container">Cannot Load Selected Film :(</div>;
   }
 
   if (film.loading) {
-    return <div>Loading...</div>;
+    return <div className="site-container">Loading...</div>;
   }
 
   return film.data ? (

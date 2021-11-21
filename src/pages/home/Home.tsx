@@ -4,6 +4,7 @@ import { HomeState } from "../../store/reducers/homeReducer";
 import { RootState } from "../../store/reducers";
 import { HomeActionType } from "../../store/action-types";
 import FilmPoster from "../../components/Posters/FilmPoster";
+import HomeSceleton from "./HomeSceleton";
 
 const Home: React.FC = () => {
   const homeState: HomeState = useSelector((state: RootState) => state.homeState);
@@ -22,7 +23,7 @@ const Home: React.FC = () => {
    * Layout
    */
   if (homeState.loading) {
-    return <div>Loading...</div>;
+    return <HomeSceleton />;
   }
 
   if (homeState.error) {

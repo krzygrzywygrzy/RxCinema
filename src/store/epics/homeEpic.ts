@@ -26,7 +26,7 @@ export function homeFetchEpic(action$: Observable<HomeAction>) {
           catchError((err) =>
             of({
               type: HomeActionType.ERROR,
-              payload: err.message,
+              payload: err.response,
             })
           )
         )

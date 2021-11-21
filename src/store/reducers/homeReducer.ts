@@ -21,7 +21,6 @@ const homeReducer: Reducer<HomeState> = (
       return { loading: true, data: state.data };
     }
     case HomeActionType.FETCHED: {
-      console.log(action.payload);
       return { loading: false, data: action.payload };
     }
     case HomeActionType.ERROR: {

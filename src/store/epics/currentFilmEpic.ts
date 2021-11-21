@@ -27,7 +27,7 @@ export function currentFilmEpic(action$: Observable<CurrentFilmAction>) {
                 map((response) => fetched(response)),
                 catchError((err) => of({
                     type: FilmActionType.ERROR,
-                    payload: err.message,
+                    payload: err.response,
                 }))
             )
         )
