@@ -20,6 +20,8 @@ const Film: React.FC<FilmProps> = ({ id }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+
+
   if (film.error) {
     return <div className="site-container">Cannot Load Selected Film :(</div>;
   }
