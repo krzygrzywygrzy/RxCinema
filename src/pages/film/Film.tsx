@@ -20,6 +20,11 @@ const Film: React.FC<FilmProps> = ({ id }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    if (film.data) document.title = film.data.details.title;
+    else document.title = "loading...";
+  }, [film]);
+
   if (film.error) {
     return <div className="site-container">Cannot Load Selected Film :(</div>;
   }

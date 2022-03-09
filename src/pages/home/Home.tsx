@@ -18,6 +18,8 @@ const Home: React.FC = () => {
     if (!homeState.data) {
       fetchData();
     }
+
+    document.title = "RxCinema";
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
