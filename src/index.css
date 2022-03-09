@@ -14,12 +14,13 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 @layer base {
   .site-container {
-    @apply mx-32;
+    @apply mx-4 md:mx-32;
   }
 
   /* Hide scrollbar for IE, Edge and Firefox */
@@ -34,7 +35,7 @@ code {
 }
 
 .home-section {
-  @apply my-8 ml-32;
+  @apply my-8 ml-5 md:ml-32;
 }
 
 .home-section-title {

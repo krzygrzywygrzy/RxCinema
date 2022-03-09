@@ -7,7 +7,9 @@ import FilmPoster from "../../components/Posters/FilmPoster";
 import HomeSceleton from "./HomeSceleton";
 
 const Home: React.FC = () => {
-  const homeState: HomeState = useSelector((state: RootState) => state.homeState);
+  const homeState: HomeState = useSelector(
+    (state: RootState) => state.homeState
+  );
   const dispatch = useDispatch();
 
   const fetchData = () => dispatch({ type: HomeActionType.FETCH });
@@ -52,10 +54,10 @@ const Home: React.FC = () => {
         </section>
         <section className="site-container">
           <div className="home-section-title">Popular films</div>
-          <div className="grid grid-cols-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-8 gap-4">
             {homeState.data?.popularFilms.results.map((film) => {
               return (
-                <div key={film.id} className="mr-4">
+                <div key={film.id}>
                   <FilmPoster film={film} grid={true} />
                 </div>
               );
