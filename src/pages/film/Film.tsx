@@ -20,8 +20,6 @@ const Film: React.FC<FilmProps> = ({ id }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-
-
   if (film.error) {
     return <div className="site-container">Cannot Load Selected Film :(</div>;
   }
@@ -40,10 +38,12 @@ const Film: React.FC<FilmProps> = ({ id }) => {
             className="rounded-xl"
           />
         </div>
-        <div className="ml-4 col-span-2">
+        <div className="ml-4 col-span-3 md:col-span-2">
           <section>
             <div>
-              <span className="text-5xl">{film.data?.details.title}</span>
+              <span className=" text-3xl lg:text-5xl">
+                {film.data?.details.title}
+              </span>
               <span className="ml-2 text-3xl text-gray-500">
                 {new Date(film.data?.details.release_date).getFullYear()}
               </span>
@@ -55,8 +55,13 @@ const Film: React.FC<FilmProps> = ({ id }) => {
             </div>
 
             <div className="mt-4 text-3xl">
-              Average Score: <span className="text-4xl">{film.data?.details.vote_average}</span>
-              <span className="ml-2 text-base">by {film.data?.details.vote_count} reviewers</span>
+              Average Score:{" "}
+              <span className="text-4xl">
+                {film.data?.details.vote_average}
+              </span>
+              <span className="ml-2 text-base">
+                by {film.data?.details.vote_count} reviewers
+              </span>
             </div>
             <span>{film.data.details.status}</span>
             {film.data?.details.tagline && (
@@ -68,7 +73,7 @@ const Film: React.FC<FilmProps> = ({ id }) => {
           </section>
         </div>
       </main>
-      <section className="ml-32">
+      <section className="ml-4 md:ml-32">
         <section>
           <div className="text-4xl mb-4">Cast</div>
           <div className="flex item-roll">
