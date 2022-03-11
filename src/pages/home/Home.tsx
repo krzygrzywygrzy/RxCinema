@@ -31,7 +31,10 @@ const Home: React.FC = () => {
   }
 
   if (homeState.error) {
-    return <div>Error: {homeState.error.message}</div>;
+    console.log(homeState.error);
+    return (
+      <div className="site-container">Error: {homeState.error.message}</div>
+    );
   }
 
   return (

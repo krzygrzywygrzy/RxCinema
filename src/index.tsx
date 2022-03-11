@@ -20,7 +20,8 @@ declare global {
   }
 }
 
-const composeEnhancers = (window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
+const composeEnhancers =
+  (window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
 const epicMiddleware = createEpicMiddleware<any, any, RootState>();
 
@@ -38,12 +39,18 @@ epicMiddleware.run(CURRENT_FILM_EPICS as any);
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Navbar />
-      <Route path={Navigation.HOME}>
-        <Home />
-      </Route>
-      <Route path={Navigation.FILM + "/:id"}>{(params) => <Film id={parseInt(params.id)} />}</Route>
-      <Footer />
+      <div className="relative min-h-screen">
+        <div className="pb-16">
+          <Navbar />
+          <Route path={Navigation.HOME}>
+            <Home />
+          </Route>
+          <Route path={Navigation.FILM + "/:id"}>
+            {(params) => <Film id={parseInt(params.id)} />}
+          </Route>
+        </div>
+        <Footer />
+      </div>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
