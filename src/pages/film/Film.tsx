@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../store/reducers";
 import { FilmActionType } from "../../store/action-types";
 import PersonPoster from "../../components/Posters/PersonPoster";
+import FilmSceleton from "./FilmSceleton";
 
 interface FilmProps {
   id: number;
@@ -30,7 +31,7 @@ const Film: React.FC<FilmProps> = ({ id }) => {
   }
 
   if (film.loading) {
-    return <div className="site-container">Loading...</div>;
+    return <FilmSceleton />;
   }
 
   return film.data ? (
